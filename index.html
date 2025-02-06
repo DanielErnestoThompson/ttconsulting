@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thompson & Thompson Consulting</title>
 
-    <!-- Load necessary scripts (Updated paths) -->
+    <!-- Load necessary scripts -->
     <script src="assets/js/three.min.js"></script>
     <script src="assets/js/vanta.dots.min.js"></script>
 
     <style>
         body {
             margin: 0;
-            font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #ffffff;
             color: #000000;
             text-align: center;
@@ -40,23 +40,31 @@
             z-index: 1;
         }
 
-        h1 {
+        /* Move title to the top */
+        .title {
+            position: absolute;
+            top: 10vh;
             font-size: 3rem;
-            font-weight: 300;
+            font-weight: bold;
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #666;
+        /* Center the "Create the Future" button */
+        .center-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .button-container {
-            margin-top: 20px;
+        /* Position "Who We Are" button at the top-right */
+        .top-right-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
         .btn {
             padding: 10px 20px;
-            margin: 10px;
             font-size: 1rem;
             border: none;
             cursor: pointer;
@@ -64,7 +72,7 @@
         }
 
         .btn-primary {
-            background-color: hwb(215 6% 65%);
+            background-color: #001f3f; /* Navy Blue */
             color: white;
         }
 
@@ -77,25 +85,23 @@
     <!-- Background Animation -->
     <div id="vanta-bg"></div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Thompson & Thompson Consulting</h1>
-        <p></p>
-        <div class="button-container">
-            <button class="btn btn-primary">Create The Future</button>
-            <button class="btn btn-secondary">Who We Are</button>
-        </div>
-    </div>
+    <!-- Title -->
+    <h1 class="title">Thompson & Thompson Consulting</h1>
 
-    <!-- Initialize Vanta.js with improvements -->
+    <!-- Main Content -->
+    <button class="btn btn-primary center-button">Create The Future</button>
+    <button class="btn btn-secondary top-right-button">Who We Are</button>
+
+    <!-- Initialize Vanta.js -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (typeof VANTA !== "undefined") {
                 VANTA.DOTS({
                     el: "#vanta-bg",
-                    color: 0x000000,
-                    backgroundColor: 0xffffff,
-                    spacing: 35
+                    color: 0x000000,  // Black dots
+                    color2: 0x000000, // Black lines
+                    backgroundColor: 0xffffff, // White background
+                    spacing: 10
                 });
             } else {
                 console.error("Vanta.js failed to load.");
