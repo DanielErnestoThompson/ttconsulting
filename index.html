@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thompson & Thompson Consulting</title>
 
-    <!-- Load necessary scripts (Updated paths) -->
+    <!-- Load necessary scripts -->
     <script src="assets/js/three.min.js"></script>
     <script src="assets/js/vanta.dots.min.js"></script>
 
@@ -15,11 +15,10 @@
             font-family: Arial, Helvetica, sans-serif;
             background: #ffffff;
             color: #000000;
-            text-align: center;
             overflow: hidden;
         }
 
-        /* Background animation container */
+        /* Background animation */
         #vanta-bg {
             position: absolute;
             top: 0;
@@ -29,47 +28,48 @@
             z-index: -1;
         }
 
-        .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            z-index: 1;
+        /* Header Styling */
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 300;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        .button-container {
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1rem;
+        /* Button: Who We Are */
+        .who-we-are {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ddd;
+            padding: 10px 15px;
+            border-radius: 5px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            font-size: 1rem;
         }
 
+        /* Centered content */
+        .center-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* Create the Future button */
         .btn-primary {
-            background-color: hwb(215 6% 65%);
+            background-color: #1E3A8A;
             color: white;
-        }
-
-        .btn-secondary {
-            background-color: #ddd;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -77,25 +77,27 @@
     <!-- Background Animation -->
     <div id="vanta-bg"></div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Thompson & Thompson Consulting</h1>
-        <p></p>
-        <div class="button-container">
-            <button class="btn btn-primary">Create The Future</button>
-            <button class="btn btn-secondary">Who We Are</button>
-        </div>
+    <!-- Header -->
+    <div class="header">Thompson & Thompson Consulting</div>
+
+    <!-- "Who We Are" Button -->
+    <button class="who-we-are">Who We Are</button>
+
+    <!-- Center Content -->
+    <div class="center-container">
+        <button class="btn-primary">Create The Future</button>
     </div>
 
-    <!-- Initialize Vanta.js with improvements -->
+    <!-- Initialize Vanta.js -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (typeof VANTA !== "undefined") {
                 VANTA.DOTS({
                     el: "#vanta-bg",
-                    color: 0x000000,
-                    backgroundColor: 0xffffff,
-                    spacing: 10
+                    color: 0x000000,  // Color of dots
+                    backgroundColor: 0xffffff, // Background color
+                    spacing: 20,  // Adjust spacing
+                    size: 3        // Adjust dot size
                 });
             } else {
                 console.error("Vanta.js failed to load.");
