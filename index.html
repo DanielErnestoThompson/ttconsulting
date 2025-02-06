@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thompson & Thompson Consulting</title>
-    <script src="C:\Users\offic\OneDrive\Desktop\ttconsulting\ttconsulting\assets\js\three.min.js"></script>
-    <script src="C:\Users\offic\OneDrive\Desktop\ttconsulting\ttconsulting\assets\js\vanta.dots.min.js"></script>
+
+    <!-- Load necessary scripts (Updated paths) -->
+    <script src="assets/js/three.min.js"></script>
+    <script src="assets/js/vanta.dots.min.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -15,12 +18,17 @@
             text-align: center;
             overflow: hidden;
         }
+
+        /* Background animation container */
         #vanta-bg {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100vh;
             z-index: -1;
         }
+
         .container {
             position: relative;
             height: 100vh;
@@ -29,18 +37,23 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            z-index: 1;
         }
+
         h1 {
             font-size: 3rem;
             font-weight: 300;
         }
+
         p {
             font-size: 1.2rem;
             color: #666;
         }
+
         .button-container {
             margin-top: 20px;
         }
+
         .btn {
             padding: 10px 20px;
             margin: 10px;
@@ -49,17 +62,22 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
         .btn-primary {
             background-color: #a00;
             color: white;
         }
+
         .btn-secondary {
             background-color: #ddd;
         }
     </style>
 </head>
 <body>
+    <!-- Background Animation -->
     <div id="vanta-bg"></div>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>Thompson & Thompson Consulting</h1>
         <p>Strategic Solutions for Businesses & Startups</p>
@@ -68,12 +86,20 @@
             <button class="btn btn-secondary">Learn More</button>
         </div>
     </div>
+
+    <!-- Initialize Vanta.js with improvements -->
     <script>
-        VANTA.DOTS({
-            el: "#vanta-bg",
-            color: 0xa00,
-            backgroundColor: 0xf9f9f9,
-            spacing: 20
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof VANTA !== "undefined") {
+                VANTA.DOTS({
+                    el: "#vanta-bg",
+                    color: 0xa00,
+                    backgroundColor: 0xf9f9f9,
+                    spacing: 20
+                });
+            } else {
+                console.error("Vanta.js failed to load.");
+            }
         });
     </script>
 </body>
