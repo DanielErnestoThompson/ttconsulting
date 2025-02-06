@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thompson & Thompson Consulting</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.dots.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #444;
+            text-align: center;
+            overflow: hidden;
+        }
+        #vanta-bg {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #a00;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <div class="container">
+        <h1>Thompson & Thompson Consulting</h1>
+        <p>Strategic Solutions for Businesses & Startups</p>
+        <div class="button-container">
+            <button class="btn btn-primary">Get Started</button>
+            <button class="btn btn-secondary">Learn More</button>
+        </div>
+    </div>
+    <script>
+        VANTA.DOTS({
+            el: "#vanta-bg",
+            color: 0xa00,
+            backgroundColor: 0xf9f9f9,
+            spacing: 20
+        });
+    </script>
+</body>
+</html>
