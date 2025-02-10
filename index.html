@@ -28,49 +28,61 @@
             z-index: -1;
         }
 
-        /* Logo as Header */
-        .header {
-            position: absolute;
-            top: -170px;
-            left: -200px;
-            width: 600px; /* Adjust width of logo */
-        }
-
-        .header img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* Who We Are (Just Underlined Text) */
-        .who-we-are {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1rem;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        /* Centered content */
-        .center-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        /* Bigger "Invent Now" Button */
-        .btn-primary {
-            background-color: rgb(0, 0, 0);
-            color: hsl(0, 0%, 100%);
-            padding: 24px 32px; /* Increased padding */
-            font-size: 2.4rem; /* Increased font size */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 50px;
+            border-bottom: 2px solid #ccc; /* Light grey separator */
             position: relative;
-            z-index: 2;
+            z-index: 10;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            position: relative;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+        
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: black;
+            white-space: nowrap;
+        }
+        
+        .dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Logo as Header */
+        .header img {
+            width: 120px;
+            height: auto;
         }
     </style>
 </head>
@@ -78,18 +90,32 @@
     <!-- Background Animation -->
     <div id="vanta-bg"></div>
 
-    <!-- Logo as Header -->
-    <div class="header">
+    <!-- Navigation Bar -->
+    <div class="navbar">
         <img src="assets/images/logo.png" alt="Thompson & Thompson Consulting Logo">
+        <div class="nav-links">
+            <div class="nav-item">
+                Industries
+                <div class="dropdown">
+                    <a href="#">Healthcare</a>
+                    <a href="#">Telecommunications</a>
+                    <a href="#">Education (K-12)</a>
+                    <a href="#">Nonprofits</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                Consulting Services
+                <div class="dropdown">
+                    <a href="#">Strategy</a>
+                    <a href="#">Operations</a>
+                    <a href="#">Technology & Digital Transformation</a>
+                    <a href="#">Finance & Analytics</a>
+                </div>
+            </div>
+            <div class="nav-item">Digital</div>
+            <div class="nav-item">About</div>
+        </div>
     </div>
-
-    <!-- "Who We Are" (Underlined Text) 
-    <div class="who-we-are">Who we are</div>-->
-
-    <!-- Center Content 
-    <div class="center-container">
-        <button class="btn-primary">Services</button>
-    </div> -->
 
     <!-- Initialize Vanta.js -->
     <script>
