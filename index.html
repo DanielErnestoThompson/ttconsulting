@@ -43,10 +43,21 @@
             z-index: 1000;
             height: 50px;
         }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
         
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 30px;
+            margin: 0 auto;
         }
         
         .nav-item {
@@ -83,12 +94,6 @@
         .dropdown a:hover {
             background: #f0f0f0;
         }
-
-        /* Logo as Header */
-        .header img {
-            width: 100px;
-            height: auto;
-        }
     </style>
 </head>
 <body>
@@ -97,7 +102,9 @@
 
     <!-- Navigation Bar -->
     <div class="navbar">
-        <img src="assets/images/logo.png" alt="Thompson & Thompson Consulting Logo">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Thompson & Thompson Consulting Logo">
+        </div>
         <div class="nav-links">
             <div class="nav-item">
                 Industries
