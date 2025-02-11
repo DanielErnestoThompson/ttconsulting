@@ -4,141 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thompson & Thompson Consulting</title>
-
-    <!-- Load necessary scripts -->
     <script src="assets/js/three.min.js"></script>
     <script src="assets/js/vanta.dots.min.js"></script>
-
     <style>
         body {
             margin: 0;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             background: #ffffff;
             color: #020202;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Background animation */
+        /* Fix for background positioning */
         #vanta-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative; /* Changed from absolute */
             width: 100%;
-            height: 100vh;
+            height: 100vh; /* Keeps dots at full height */
             z-index: -1;
         }
 
-        /* Navigation Bar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            padding: 10px 30px;
-            border-bottom: 2px solid #ccc; /* Light grey separator */
-            position: fixed;
-            top: 0;
-            left: 0;
+        .separator-line {
             width: 100%;
-            z-index: 1000;
-            height: 50px;
+            height: 2px;
+            background: #ccc;
+            position: absolute;
+            top: 60px;
+            left: 0;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            width: 100px;
-            height: auto;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            margin: 0 auto;
-        }
-        
-        .nav-item {
-            position: relative;
-            font-size: 1rem;
+        .nav-text {
+            position: absolute;
+            font-size: 1.1rem;
             cursor: pointer;
-            padding: 5px 10px;
         }
-        
-        .nav-item:hover .dropdown {
-            display: block;
-        }
-        
-        /* Dropdown Menu */
+
+        .industries { left: 1000px; top: 20px; }
+        .consulting { left: 1120px; top: 20px; }
+        .digital { left: 1330px; top: 20px; }
+        .about { left: 1440px; top: 20px; }
+
         .dropdown {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
             background: white;
             box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-            min-width: 150px;
+            min-width: 200px;
         }
-        
+
+        .nav-text:hover .dropdown {
+            display: block;
+        }
+
         .dropdown a {
             display: block;
-            padding: 8px 12px;
+            padding: 10px 15px;
             text-decoration: none;
             color: black;
             white-space: nowrap;
-            font-size: 0.9rem;
         }
-        
+
         .dropdown a:hover {
             background: #f0f0f0;
+        }
+
+        /* Blank Section Fix */
+        .blank-section {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            background: white;
+            position: relative;
+            margin-top: -50px; /* Slight adjustment so it sits below the dots */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Black Banner Now Inside Blank Section */
+        .black-banner {
+            width: 60%;
+            border-radius: 40px;
+            height: 350px;
+            background: #000000;
+            color: white;
+            text-align: left;
+            font-size: 4rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 60px;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .hover-popup {
+            display: none;
+            position: absolute;
+            left: 25%;
+            top: 70px;
+            width: 70%;
+            background: hsla(226, 100%, 80%, 0.902);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.9rem;
+            z-index: 10;
+        }
+
+        .black-banner span {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .black-banner span:hover + .hover-popup {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Background Animation -->
-    <div id="vanta-bg"></div>
+    <div id="vanta-bg"></div> <!-- Vanta background remains at full page height -->
+    <div class="separator-line"></div>
 
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <div class="logo">
-            <img src="assets/images/logo.png" alt="Thompson & Thompson Consulting Logo">
-        </div>
-        <div class="nav-links">
-            <div class="nav-item">
-                Industries
-                <div class="dropdown">
-                    <a href="#">Healthcare</a>
-                    <a href="#">Telecommunications</a>
-                    <a href="#">Education (K-12)</a>
-                    <a href="#">Nonprofits</a>
-                </div>
+    <div class="blank-section">
+        <div class="black-banner">
+            <span id="imagine">Imagine</span>
+            <div class="hover-popup">
+                Imagination is the ability to create a mental model of something that doesn’t exist yet. 
+                It drives our consulting by enabling us to envision new strategies, reimagine business models, 
+                innovate products, and explore untapped opportunities.
             </div>
-            <div class="nav-item">
-                Consulting Services
-                <div class="dropdown">
-                    <a href="#">Strategy</a>
-                    <a href="#">Operations</a>
-                    <a href="#">Technology & Digital Transformation</a>
-                    <a href="#">Finance & Analytics</a>
-                </div>
+
+            <span id="invent">Invent</span>
+            <div class="hover-popup">
+                Imagination alone isn't enough. It must be transformed into something tangible. 
+                Inventing is the bridge between ideas and reality—taking mental models and shaping them 
+                into actionable strategies, new products, and refined business models that address 
+                unmet needs and unlock hidden opportunities.
             </div>
-            <div class="nav-item">Digital</div>
-            <div class="nav-item">About</div>
+
+            <span id="interpret">Interpret</span>
+            <div class="hover-popup">
+                Innovation doesn't stop at invention. Interpretation ensures that what is created 
+                remains adaptable, relevant, and aligned with changing landscapes. It’s about refining 
+                and adjusting strategies based on insights, ensuring long-term sustainability and impact.
+            </div>
         </div>
     </div>
+    
+    <div class="nav-text industries">Industries
+        <div class="dropdown">
+            <a href="#">Healthcare</a>
+            <a href="#">Telecommunications</a>
+            <a href="#">Education (K-12)</a>
+            <a href="#">Nonprofits</a>
+        </div>
+    </div>
+    
+    <div class="nav-text consulting">Consulting Services
+        <div class="dropdown">
+            <a href="#">Strategy</a>
+            <a href="#">Operations</a>
+            <a href="#">Technology & Digital Transformation</a>
+            <a href="#">Finance & Analytics</a>
+        </div>
+    </div>
+    
+    <div class="nav-text digital">Digital</div>
+    <div class="nav-text about">About</div>
 
-    <!-- Initialize Vanta.js -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (typeof VANTA !== "undefined") {
                 VANTA.DOTS({
                     el: "#vanta-bg",
-                    color: 0x000000,  // Color of dots
-                    backgroundColor: 0xffffff, // Background color
-                    spacing: 25,  // Adjust spacing
-                    size: 4        // Adjust dot size
+                    color: 0x000000,
+                    backgroundColor: 0xffffff,
+                    spacing: 25,
+                    size: 4
                 });
             } else {
                 console.error("Vanta.js failed to load.");
