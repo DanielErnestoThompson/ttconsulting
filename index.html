@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- JavaScript -->
+    <script defer src="scripts.js"></script>
 </head>
 
 <body>
@@ -36,6 +39,7 @@
         <div class="hero-progress">
             <div class="loader"></div>
         </div>             
+        
         <div class="hero-slider">
             <div class="hero-slide active" style="background-image: url('./images/hp.jpg');"></div>
             <div class="hero-slide" style="background-image: url('./images/hprov.jpg');"></div>
@@ -43,61 +47,111 @@
             <div class="hero-slide" style="background-image: url('./images/edu.jpg');"></div>
             <div class="hero-slide" style="background-image: url('./images/vol.jpg');"></div>
         </div>
+
         <div class="hero-content">
             <h1 class="hero-title" id="hero-title">3 Strategies to Optimize Telehealth Adoption & Utilization</h1>
             <a href="#" class="hero-button">Learn More</a>
         </div>
+
+        <!-- Slider Controls -->
+        <button class="hero-prev" aria-label="Previous Slide">&#10094;</button>
+        <button class="hero-next" aria-label="Next Slide">&#10095;</button>
     </section>
 
-    <!-- Finder Section -->
-    <section class="finder-section">
-        <div class="finder__step-text">
-            <h1>We Listen. You Belong. Together We Build the Future.</h1>
-            <p>Respond to two questions to task our minds with your needs.</p>
+<!-- Finder Section -->
+<section class="finder-section">
+    <div class="finder__step-text" id="step-1">
+        <h1>We Listen. You Belong. Together We Build the Future.</h1>
+        <p>Respond to two questions to task our minds with your needs.</p>
 
-            <!-- Step 1: Industry Selection -->
-            <fieldset class="finder__options">
-                <legend>1. What is your industry?</legend>
-                <ul class="finder__list">
-                    <li><input type="radio" name="sector" id="cpg"><label for="cpg">CPG</label></li>
-                    <li><input type="radio" name="sector" id="telecom"><label for="telecom">Telecommunications</label></li>
-                    <li><input type="radio" name="sector" id="edu"><label for="edu">Education</label></li>
-                </ul>
-            </fieldset>
-        </div>
-        
-        <div class="finder__step-image">
-            <img src="./images/corp1.jpeg" alt="Industry Image">
-        </div>
-    </section>
+        <!-- Step 1: Industry Selection -->
+        <fieldset class="finder__options">
+            <legend>1. What is your industry?</legend>
+            <ul class="finder__list">
+                <li><input type="radio" name="sector" id="cpg"><label for="cpg">CPG</label></li>
+                <li><input type="radio" name="sector" id="telecom"><label for="telecom">Telecommunications</label></li>
+                <li><input type="radio" name="sector" id="edu"><label for="edu">Education</label></li>
+                <li><input type="radio" name="sector" id="med"><label for="med">Medical Devices</label></li>
+                <li><input type="radio" name="sector" id="pharma"><label for="pharma">Pharmaceuticals</label></li>
+                <li><input type="radio" name="sector" id="nonprofit"><label for="nonprofit">Nonprofit</label></li>
+                <li><input type="radio" name="sector" id="manufacturing"><label for="manufacturing">Manufacturing</label></li>
+                <li><input type="radio" name="sector" id="saas"><label for="saas">SaaS</label></li>
+                <li><input type="radio" name="sector" id="healthcare"><label for="healthcare">Healthcare</label></li>
+            </ul>
+        </fieldset>
+    </div>
 
-    <!-- Four Box Grid Layout -->
+    <div class="finder__step-text hidden" id="step-2">
+        <h1>Great! Now, tell us your challenge.</h1>
+        <p>We want to understand what you're tackling.</p>
+
+        <!-- Step 2: Challenge Selection -->
+        <fieldset class="finder__options">
+            <legend>2. What is your biggest challenge?</legend>
+            <ul class="finder__list">
+                <li><input type="radio" name="challenge" id="growth"><label for="growth">Scaling for Growth</label></li>
+                <li><input type="radio" name="challenge" id="efficiency"><label for="efficiency">Operational Efficiency</label></li>
+                <li><input type="radio" name="challenge" id="talent"><label for="talent">Talent & Skills</label></li>
+            </ul>
+        </fieldset>
+    </div>
+
+    <div class="finder__step-image" id="step-1-image">
+        <img src="./images/corp1.jpeg" alt="Industry Image">
+    </div>
+
+    <div class="finder__step-image hidden" id="step-2-image">
+        <img src="./images/corp2.jpg" alt="Challenge Image">
+    </div>
+</section>
+
+
+    <section class="recommended-section">
+        <div class="recommended-eyebrow">WEEKLY FEATURED INSIGHTS</div>
+        <h2 class="recommended-title">
+            <span id="auto-typing"></span> <!-- This will be filled dynamically -->
+        </h2>
+    </section>    
+
+
+    <!-- Content Grid -->
     <section class="content-grid">
         <div class="content-left">
-            <div class="content-box">
+            <div class="content-box" style="background-image: url('./images/edu2.jpg');">
                 <div class="industry-label">Education</div>
                 <div class="content-overlay">
-                    <p>Exploring how innovative learning models transform education.</p>
+                    <div class="content-title">Dismantled DOE? 4 Tactics to Protecting At-Risk Students</div>
+                    <p class="hover-title">Explore new models for learning in 2025.</p>
+                    <a href="#" class="cta-button">Learn More →</a>
                 </div>
             </div>
-            <div class="content-box">
+
+            <div class="content-box" style="background-image: url('./images/saas.jpg');">
                 <div class="industry-label">SaaS</div>
                 <div class="content-overlay">
-                    <p>Strategies for scaling cloud-based solutions.</p>
+                    <div class="content-title">Strategies for Scaling Cloud-Based Solutions</div>
+                    <p class="hover-title">Discover how cloud-based solutions scale faster.</p>
+                    <a href="#" class="cta-button">Learn More →</a>
                 </div>
             </div>
         </div>
+
         <div class="content-right">
-            <div class="content-box">
+            <div class="content-box" style="background-image: url('./images/manu.jpg');">
                 <div class="industry-label">Manufacturing</div>
                 <div class="content-overlay">
-                    <p>Leveraging AI and automation in manufacturing.</p>
+                    <div class="content-title">Are you Automated? Reducing Costs with AI</div>
+                    <p class="hover-title">Leveraging AI to improve your balance sheet.</p>
+                    <a href="#" class="cta-button">Learn More →</a>
                 </div>
             </div>
-            <div class="content-box">
+
+            <div class="content-box" style="background-image: url('./images/cpg.jpg');">
                 <div class="industry-label">CPG</div>
                 <div class="content-overlay">
-                    <p>How consumer brands are adapting to digital transformation.</p>
+                    <div class="content-title">How Consumer Brands Are Adapting to Digital Transformation</div>
+                    <p class="hover-title">Developing the new digital cusotmer experienc</p>
+                    <a href="#" class="cta-button">Learn More →</a>
                 </div>
             </div>
         </div>
@@ -134,5 +188,6 @@
             </div>
         </div>
     </section>
+
 </body>
 </html>
